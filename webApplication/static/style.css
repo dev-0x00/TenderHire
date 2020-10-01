@@ -16,7 +16,7 @@
 
 * { margin: auto; padding: auto; }
 html { overflow-y: scroll; }
-body { font: 12px/1.4 Helvetica, sans-serif; background: black; color: #fff; }
+body { font: 12px/1.4 Helvetica, sans-serif; background: black; color: #fff; margin: auto;}
 .group:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
 .group { display: inline-block; clear: both; }
 /* html .group { height: 1%; } .group { display: block; } /* close commented backslash hack */
@@ -114,9 +114,9 @@ section #main-content
 	background-image: url(../images/background1.png);
 	border: 2px solid black;
 	padding-left: 5%;
-	padding-bottom: 50px;
+	padding-bottom: 0px;
 	height: 0px;
-	margin: 0;
+	margin-top: 0;
 }
 
 .section-paragraph
@@ -124,11 +124,11 @@ section #main-content
 	float: left;
 	height: 100%;
 	width: 550px;
-	margin-top: -3%;
-	padding-left: 60px;
+	margin-top: 5px;
+	padding-left: 5%;
 	padding-top: 0px;
 	overflow: hidden;
-	margin-bottom: 10%;
+	/*margin-bottom: 10%;*/
 }
 
 .section-paragraph h1
@@ -144,6 +144,7 @@ section #main-content
 {
 	margin-top: 40%;
 	padding: 50px;
+	padding-bottom: 0;
 }
 
 .section-2 h1
@@ -155,10 +156,11 @@ section #main-content
 }
 .market-reports
 {
-	margin-left: 8%;
-	height: 330px;
+	margin-left: 0%;
+	height: 300px;
 	width: 450px;
 	float: left;
+	padding-left: 10%;
 	margin-right: 20px;
 	color: yellow;
 	font-size: 1rem;
@@ -173,9 +175,10 @@ section #main-content
 .alerts
 {
 	margin-left: 6%;
-	height: 330px;
+	height: 300px;
 	width: 450px;
-	float: left;
+	float: right;
+	display: block;
 	margin-right: 20px;
 	color: yellow;
 	font-size: 1rem;
@@ -205,6 +208,7 @@ section #main-content
 	margin-top: 35%;
 	padding-left: 50px;
 	padding-right: 50px;
+	padding-left: 7%;
 }
 .download-sector
 {
@@ -363,7 +367,7 @@ section #main-content
 	height: 500px;
 	overflow: hidden;
 	padding-top: 60px;
-	padding-right: 100px;
+	padding-right: 10%;
 	margin-top: 0%;i
 	position: relative;
 	margin: 0;
@@ -379,7 +383,7 @@ section #main-content
 }
 .home-social 
 {
-  list-style: none;
+  list-style: 10;
   font-size: 14px;
   margin: 0;
   color: green;
@@ -495,6 +499,7 @@ section #main-content
 	display: block;
 	font-weight: normal;
 	padding-left: 80px;
+	text-decoration: none;
 	top: 4rem;
 	background: purple;
 	color: cyan;
@@ -526,19 +531,22 @@ section #main-content
 .work-technicals a
 {
 	font-size: 1.3rem;
+	color:cyan;
 	display: block;
 	font-weight: normal;
-	padding-left: 60px;
-	top: 4rem;
-	color: green;
 	text-decoration: none;
-	font-weight: bolder;
+	padding-left: 80px;
+	top: 4rem;
+	background: purple;
+	color: cyan;
 	border-radius: 6px;
-	font-weight: bolder;
 }
+
 .work-technicals a:hover
 {
-	 color: yellow;
+	 border-bottom: 1px solid green;
+	 color: white;
+	 background-color: cyan;
  }
 
 
@@ -558,21 +566,22 @@ section #main-content
 .work-tenders a
 {
 	font-size: 1.3rem;
+	color:cyan;
 	display: block;
 	font-weight: normal;
 	padding-left: 80px;
 	top: 4rem;
-	color: green;
 	text-decoration: none;
-	font-weight: bolder;
+	background: purple;
+	color: cyan;
 	border-radius: 6px;
-	font-weight: bolder;
 }
-
 
 .work-tenders a:hover
 {
-	 color: yellow;
+	 border-bottom: 1px solid green;
+	 color: white;
+	 background-color: cyan;
  }
 .work-tenders h5
 {
@@ -604,7 +613,8 @@ section #main-content
 {
 	height: 250px;
 	margin-top: 10%;
-	margin-bottom: 0;;
+	margin-bottom: 0;
+	padding-top: 10px;
 
 }
 
