@@ -22,8 +22,13 @@
     <?php include('../header.php'); ?>
      <div class="nav-bar">
 	    <nav>
-		    <div class="Logo">TenderHire</div>
-		    	<ul>
+		    	<div class="header-logo">
+            			<a class="site-logo" href="index.html">
+	                		<img src="./static/images/logo.svg" alt="Homepage">
+	    			</a>
+        		</div> <!-- end header-logo -->
+
+		   	<ul>
 				<li><a  href="{{ url_for('login') }}">Login</a></li>
 				<li><a  href="{{ url_for('home') }}">Home</a></li>
 	    		</ul>
@@ -33,13 +38,13 @@
 	<div id="guts">
 		<div class="about-section">
 			<div class='image-2'>
-				<img  src="./static/images/image-3.jpeg" alt="image" width='460px' height='330px' style="padding-top: 40px;">
+				<img  src="./static/images/hero-bg.jpg" alt="image" width='500px' height='400px' style="padding-top: 40px;">
 				</div>
 
 			</div>
 			<div class="section-paragraph" align='left'>
 			<h1>tenderHire | SignUp <hr class="horizantal"></h1>
-			<form method='POST' action="">
+			<form method='POST' action="" style="padding-bottom: 20px">
 				<span class="text-center">Register</span>
 				<div class="input-container">
 					<input type="mail" required="" name="Email">
@@ -58,28 +63,27 @@
 					<label>Repeat Password</label>
 				</div>
 
-				<input type="submit" value="Sign up" class="btn">
+				<input type="submit" value="Sign up" class="btn" style="width: 450px; height: 40px; margin-left: 10%;">
+				<p> already a member?<a  href="{{ url_for('login') }}">Login</a></p>
 
 			</form>
 
 			<hr class="horizantal-1"></p>
 			</div>
-				<div class="information-footer" style="margin-top: 45%;">
+					<div class="information-footer" style="margin-top: 50%">
 				<hr>
-			<footer class="footer-distributed">
+				<footer class="footer-distributed">
 
 			<div class="footer-left">
 
-				<h3>#v3dsr3d0c<span><img src="../static/images/login3.svg" alt="LOGO"></span></h3>
+				<h3>TenderHire<span><img src="../static/images/logo.svg"  style="margin-left: 0;"alt="LOGO"></span></h3>
 
 				<p class="footer-links">
-					<a href="#">Contractors</a>
 
-					<a href="#">Available Tenders</a>
-
-					<a href="#">Login</a>
-
-					<a href="#">SignUp</a>
+					<a  href="{{ url_for('login') }}">Login</a>
+					<a  href="{{ url_for('contractor') }}">Suppliers</a>
+					<a  href="{{ url_for('customer') }}">Customers</a>
+					<a  href="{{ url_for('tenders') }}">Tenders</a>
 				</p>
 
 			</div>
@@ -107,9 +111,8 @@
 
 				<p class="footer-company-about">
 					<span>About the company</span>
-				v3dsr3d0c is an online vertual company that is made for developers who are goot at their
-				codding skills.here anyone can give technical jobs, tenders, and even projects to our
-				developers and coders at will.
+				TenderHire is a global online tender bidding and posing company.Each and every 
+				individual across the globe can access and use it.
 				</p>
 
 				<div class="footer-icons">
@@ -124,15 +127,6 @@
 			</div>
 							<p class="footer-company-name">/dev/0x00@ v3dsr3d0c © 2020</p>
 
-	</footer>
-
-				</div>
-	<?php include('../footer.php'); ?>
-
-</body>
-
-</html>
-
 
 
 	<?php include('../footer.php'); ?>
@@ -140,4 +134,3 @@
 </body>
 
 </html>
-

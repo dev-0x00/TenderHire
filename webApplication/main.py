@@ -24,6 +24,10 @@ app.config['ALLOWED_EXTENSIONS'] = '.pdf'
 mysql = MySQL(app)
 @app.route('/Customer')
 def customer():
+    while True:
+        User = "Customer"
+        register(User)
+        return redirect(url_for('register'))
     return render_template('customer.html')
 
 @app.route('/AvailableTenders',  methods=['GET', 'POST'])
@@ -45,6 +49,7 @@ def checkFile(fileName):
         return True
     else:
         return False
+
 @app.route('/AvailableTenders')
 def uploadFile():
     if request.method == 'POST':
@@ -63,6 +68,7 @@ def uploadFile():
                 print ("extension not allowes")
                 return redirect(url_for('contractors'))
             return formData
+
 @app.route('/download') 
 def downloadFile():
     path = 'uploads/vacancies.pdf'
@@ -93,14 +99,14 @@ def logout():
     return redirect(url_for('login'))
 
 @app.route('/signup',methods=['GET', 'POST'])
-def register():
+def register(User):     
     if request.method == 'POST':
         formDetails = request.form
         Email = formDetails['Email']
         Username = formDetails['Username']
         Password = formDetails['Password']
         cursor = mysql.connection.cursor()
-        cursor.execute("INSERT INTO Users(Email, Username, Password) VALUES(%s, %s, %s)", (Email, Username, Password))
+        cursor.execute("INSERT INTO %s (Email, Username, Password) VALUES(%s, %s, %s)", (User, Email, Username, Password))
         mysql.connection.commit()
         cursor.close()
         while True:
@@ -109,6 +115,10 @@ def register():
 
 @app.route('/contractor', methods=['GET', 'POST'])
 def contractor():
+    while True:
+        User = "Supplier"
+        return redirect(url_for('register'))
+
     if request.method == 'POST':
         formDetails = request.form
         Company = formDetails['Company']

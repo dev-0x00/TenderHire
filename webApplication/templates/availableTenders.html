@@ -14,15 +14,16 @@
     <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
     <script type='text/javascript' src='js/jquery.ba-hashchange.min.js'></script>
     <script type='text/javascript' src='js/dynamicpage.js'></script>
+    <script type='text/javascript' src='./static/js/style.js'></script>
 	<script>
 		function openform()
 		{
-			document.getElementById('form').style.display="block";
+			document.getElementById('id01').style.display="block";
 		}
 
-		function closefile()
+		function closeform()
 		{
-			document.getElementById('form').style.display="none";
+			document.getElementById('id01').style.display="none";
 		}
 	</script>
 </head>
@@ -33,11 +34,16 @@
     <?php include('../header.php'); ?>
      <div class="nav-bar">
 	    <nav>
-		    <div class="Logo">TenderHire</div>
+		    	
+		   	<div class="header-logo">
+            			<a class="site-logo" href="index.html">
+	                		<img src="./static/images/logo.svg" alt="Homepage">
+	    			</a>
+        		</div> <!-- end header-logo -->
+
 		    	<ul>
-			<li><a  href="{{ url_for('login') }}">Login</a></li>
-			<li><a  href="{{ url_for('register') }}">Register</a></li>
-			<li><a  href="{{ url_for('contractor') }}">Contractors</a></li>
+			<li><a  href="{{ url_for('home') }}">Home</a></li>
+			<li><a  href="{{ url_for('contractor') }}">Suppliers</a></li>
 			<li><a  href="{{ url_for('customer') }}">Customers</a>
 		    	</ul>
 	   </nav>
@@ -45,19 +51,8 @@
     <section id="main-content">
 	<div id="guts">
 		<div class="about-section">
-			<div class='image-2'>
-				<img  src="./static/images/image-3.jpeg" alt="image" width='460px' height='330px' style="padding-top: 10px;">
-				</div>
-
-			</div>
-			<div class="section-paragraph" align='left'>
-			<h1>tenderHire | availabletenders<hr class="horizantal"></h1>
-			<h2>Welcome ...</h2><P>
-			tenderHire is a global platform for tender biding<br> and hiring for both contractors and customers.<br>Both consumers and contractors have a platform to negotiate<br><br><br><br><br>
-			<hr class="horizantal-1"></p>
-			</div>
-
-			<div class="sector-3" style="margin-top: 40%;">
+			
+			<div class="sector-3" style="margin-top: 40px;">
 			<hr>			
 			<table class="tender-content" style="width: 100%; margin-top: 2%; margin-left: 0%; color: yellow; font-size: 1rem">
 				<tr>
@@ -81,7 +76,7 @@
 								<button class="dropbtn">Statement</button>
 								<div class="dropup-content">
 									<a href="{{url_for('downloadFile')}}">Download</a><hr>
-									<button class="form" onclick="openform()">Submit form</button>
+									<button class="form" onclick="openform()">Submit</button>
 								</div>
 							</div>
 							<td>
@@ -89,10 +84,12 @@
 		
 					{% endfor %}
 				</table>
+				<div id="id01" class="modal">
+				<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
 				<div class="form-popup" id='form'>
-					<form action="/contractor" method='POST' enctype="multipart/form-data">
+					<form action="/AvailableTenders" method='POST' enctype="multipart/form-data">
   						<div class="container" style="background-color:black">
-    							<input type="text" placeholder="Company" name="name" required>
+    							<input type="file" placeholder="upload requirements" name="File" required>
     							<input type="text" placeholder="Email address" name="mail" required>
   						</div>
 
@@ -101,24 +98,25 @@
   						</div>
 					</form>
 				</div>
+				</div>
+			</div>
 
 		</div>
-			<div class="information-footer">
+		<div class="information-footer" style="margin-top: 30%">
 				<hr>
-								<footer class="footer-distributed">
+				<footer class="footer-distributed">
 
 			<div class="footer-left">
 
-				<h3>#v3dsr3d0c<span><img src="../static/images/login3.svg" alt="LOGO"></span></h3>
+				<h3>TenderHire<span><img src="../static/images/logo.svg"  style="margin-left: 0;"alt="LOGO"></span></h3>
 
 				<p class="footer-links">
-					<a href="#">Contractors</a>
 
-					<a href="#">Available Tenders</a>
-
-					<a href="#">Login</a>
-
-					<a href="#">SignUp</a>
+					<a  href="{{ url_for('login') }}">Login</a>
+					<a  href="{{ url_for('register') }}">Register</a>
+					<a  href="{{ url_for('contractor') }}">Suppliers</a>
+					<a  href="{{ url_for('customer') }}">Customers</a>
+					<a  href="{{ url_for('tenders') }}">Tenders</a>
 				</p>
 
 			</div>
@@ -146,9 +144,8 @@
 
 				<p class="footer-company-about">
 					<span>About the company</span>
-				v3dsr3d0c is an online vertual company that is made for developers who are goot at their
-				codding skills.here anyone can give technical jobs, tenders, and even projects to our
-				developers and coders at will.
+				TenderHire is a global online tender bidding and posing company.Each and every 
+				individual across the globe can access and use it.
 				</p>
 
 				<div class="footer-icons">
@@ -163,9 +160,8 @@
 			</div>
 							<p class="footer-company-name">/dev/0x00@ v3dsr3d0c © 2020</p>
 
-	</footer>
 
-				</div>
+
 	<?php include('../footer.php'); ?>
 
 </body>

@@ -22,11 +22,16 @@
     <?php include('../header.php'); ?>
      <div class="nav-bar">
 	    <nav>
-		    <div class="Logo">TenderHire</div>
+		    <div class="header-logo">
+            			<a class="site-logo" href="index.html">
+	                		<img src="./static/images/logo.svg" alt="Homepage">
+	    			</a>
+        		</div> <!-- end header-logo -->
+
 		    	<ul>
 			<li><a  href="{{ url_for('home') }}">Home</a></li>
-			<li><a  href="{{ url_for('contractor') }}">Contractors</a></li>
-			<li><a  href="{{ url_for('tenders') }}">AvailableTenders</a></li>
+			<li><a  href="{{ url_for('contractor') }}">Supplier</a></li>
+			<li><a  href="{{ url_for('tenders') }}">Tenders</a></li>
 		    	</ul>
 	   </nav>
     </div>
@@ -57,10 +62,12 @@
 			</div>
 			<div class='work-tenders' style="margin-top: 6%;"><hr>
 				<h5>Customers...<br></h5>
-				<p>Customer are allowed to download the tender statement which is a document that contain the finer details of the tender posted.after that you can now post your details to be processed in the backend <br><br></p>
+				<p>Customer are allowed to download the tender statement which is a document that contain the finer details of the tender posted.after that you can now post your details to be processed in the backend <br><br></p>	
+	
 			<hr style="margin-top: 5%;">
 			</div>
-				</div>
+				
+			</div>
 
 
 			<div class="sector-3">
@@ -83,28 +90,24 @@ QED aims to make procurement processes more efficient and provide value to our c
 
 		<div class="download-file">
 			<img src="./static/images/customer1.jpeg" style="width: 450px; height: 450px">
-		</div>
-		<div class="available-links">
-			<p><a href="{{url_for('tenders')}}">See Available tenders</a></p>
+		</div>	
 			</div>
-
-				</div>
-			<div class="information-footer">
+			
+			<div class="information-footer" style="margin-top: 50%">
 				<hr>
-			<footer class="footer-distributed">
+				<footer class="footer-distributed">
 
 			<div class="footer-left">
 
-				<h3>#v3dsr3d0c<span><img src="../static/images/login3.svg" alt="LOGO"></span></h3>
+				<h3>TenderHire<span><img src="../static/images/logo.svg"  style="margin-left: 0;"alt="LOGO"></span></h3>
 
 				<p class="footer-links">
-					<a href="#">Contractors</a>
 
-					<a href="#">Available Tenders</a>
-
-					<a href="#">Login</a>
-
-					<a href="#">SignUp</a>
+					<a  href="{{ url_for('login') }}">Login</a>
+					<a  href="{{ url_for('register') }}">Register</a>
+					<a  href="{{ url_for('contractor') }}">Suppliers</a>
+					<a  href="{{ url_for('customer') }}">Customers</a>
+					<a  href="{{ url_for('tenders') }}">Tenders</a>
 				</p>
 
 			</div>
@@ -132,9 +135,8 @@ QED aims to make procurement processes more efficient and provide value to our c
 
 				<p class="footer-company-about">
 					<span>About the company</span>
-				v3dsr3d0c is an online vertual company that is made for developers who are goot at their
-				codding skills.here anyone can give technical jobs, tenders, and even projects to our
-				developers and coders at will.
+				TenderHire is a global online tender bidding and posing company.Each and every 
+				individual across the globe can access and use it.
 				</p>
 
 				<div class="footer-icons">
@@ -149,9 +151,8 @@ QED aims to make procurement processes more efficient and provide value to our c
 			</div>
 							<p class="footer-company-name">/dev/0x00@ v3dsr3d0c © 2020</p>
 
-	</footer>
 
-				</div>
+
 	<?php include('../footer.php'); ?>
 
 </body>

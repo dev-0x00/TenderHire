@@ -17,6 +17,17 @@
 * { margin: auto; padding: auto; }
 html { overflow-y: scroll; }
 body { font: 12px/1.4 Helvetica, sans-serif; background: black; color: #fff; margin: auto;}
+/*body :not(#unblurred), body :not(#unblurred) * {
+    -webkit-filter: blur(2px);
+    filter: blur(2px);    
+}
+
+/*#unblurred #form 
+{
+	background: black;
+	border: 2px solid cyan;
+	filter: blur(0px);
+}*/
 .group:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
 .group { display: inline-block; clear: both; }
 /* html .group { height: 1%; } .group { display: block; } /* close commented backslash hack */
@@ -56,6 +67,16 @@ nav .Logo
 	font-size: 1.5rem;
 	transition: .3s;
 }
+
+nav .header-logo img {
+  width: -300px;
+  height: 40px;
+  display: block;
+  position: left;
+  padding: 20px;
+  float: left;
+}
+
 
 nav ul
 {
@@ -107,6 +128,13 @@ section #main-content
 }
 #guts p
 {
+}
+
+.section-paragraph p
+{
+	padding: 2px;
+	text-align: center;
+	font-size: 1rem;
 }
 
 .about-section
@@ -206,9 +234,8 @@ section #main-content
 .sector-3
 {
 	margin-top: 35%;
-	padding-left: 50px;
+	padding-left: 20px;
 	padding-right: 50px;
-	padding-left: 7%;
 }
 .download-sector
 {
@@ -249,7 +276,7 @@ section #main-content
 
 .available-links
 {
-	margin-top: 50%;
+	margin-top: 30%;
 	border: 1px solid yellow;
 	height: 50px;
 	width: 450px;
@@ -283,13 +310,33 @@ section #main-content
   border: none;
 }
 .form-popup {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  right: 15px;
-  border: 3px solid #f1f1f1;
-  z-index: 9;
+  background-color: black;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid cyan;
+  width: 50%; /* Could be more or less, depending on screen size */
+
 }
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: black;
+  padding-top: 70px;
+  }
+  .close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+}
+
 
 .dropbtn {
   background-color: black;
@@ -613,11 +660,13 @@ section #main-content
 {
 	height: 250px;
 	margin-top: 10%;
-	margin-bottom: 0;
-	padding-top: 10px;
+	margin-bottom: 0;+
 
 }
-
+.container
+{
+	margin: 20px;
+}
 
 .text-center
 {
@@ -627,7 +676,7 @@ section #main-content
     	margin-top: 8%;
     	display: block;
     	text-align: center;
-	margin-bottom:10%;
+	padding-bottom: 0;
 }
 .input-container{
 	position:relative;
@@ -664,11 +713,12 @@ section #main-content
 	color: cyan;
 	background-color: cyan;
 	outline: none;
+	text-align: center;
     	border: 0;
     	color: green;
 	padding:10px 20px;
-	margin-left: 42%;
-	margin-bottom: 20%;
+	margin-left: 40%;
+	padding-bottom: 20%;
 	text-transform:uppercase;
 	margin-top: 5%;
 	border-radius:10px;
@@ -680,6 +730,13 @@ section #main-content
 	top:-15px;
 	font-size:0.8rem;
 	
+}
+
+table{border-collapse: collapse;}
+tr
+{
+
+	border-bottom: solid 1px white;
 }
 
 .footer-distributed{
@@ -694,12 +751,14 @@ section #main-content
 .footer-distributed .footer-right{
 	display: inline-block;
 	vertical-align: top;
+	padding-top: 20px;
 }
 
 /* Footer left */
 
 .footer-distributed .footer-left{
 	width: 30%;
+	margin-left: 50px;
 }
 
 /* The company logo */
@@ -746,6 +805,7 @@ section #main-content
 
 .footer-distributed .footer-center{
 	width: 35%;
+	margin-left: 60px;
 }
 
 .footer-distributed .footer-center i{
