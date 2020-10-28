@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, send_file
 from flask_mysqldb import MySQL
-from werkzeug import secure_filename
+#from werkzeug import secure_filename
 from bcrypt import *
 import MySQLdb.cursors
 import re
@@ -24,10 +24,6 @@ app.config['ALLOWED_EXTENSIONS'] = '.pdf'
 mysql = MySQL(app)
 @app.route('/Customer')
 def customer():
-    while True:
-        User = "Customer"
-        register(User)
-        return redirect(url_for('register'))
     return render_template('customer.html')
 
 @app.route('/AvailableTenders',  methods=['GET', 'POST'])
@@ -83,7 +79,7 @@ def login():
         Password = request.form['Password']
         #check if the username and the password match the details in the msql table
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM Users WHERE Email = %s and Password = %s', (Email, Password))
+        cursor.execute('SELECT * FROM Customers WHERE Email = %s and Password = %s', (Email, Password))
         #fetch the record and return the results
         account = cursor.fetchone()
         if account:
@@ -99,14 +95,14 @@ def logout():
     return redirect(url_for('login'))
 
 @app.route('/signup',methods=['GET', 'POST'])
-def register(User):     
+def register():     
     if request.method == 'POST':
         formDetails = request.form
         Email = formDetails['Email']
         Username = formDetails['Username']
         Password = formDetails['Password']
         cursor = mysql.connection.cursor()
-        cursor.execute("INSERT INTO %s (Email, Username, Password) VALUES(%s, %s, %s)", (User, Email, Username, Password))
+        cursor.execute("INSERT INTO Customers (Email, Username, Password) VALUES(%s, %s, %s)", (Email, Username, Password))
         mysql.connection.commit()
         cursor.close()
         while True:
@@ -115,9 +111,7 @@ def register(User):
 
 @app.route('/contractor', methods=['GET', 'POST'])
 def contractor():
-    while True:
-        User = "Supplier"
-        return redirect(url_for('register'))
+   
 
     if request.method == 'POST':
         formDetails = request.form
